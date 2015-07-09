@@ -19,6 +19,7 @@ RUN pacman -S python-pip python2-pip  --noconfirm
 RUN pip install flake8 && pip2 install flake8
 
 #Install basic python libraries
+RUN pacman -S postgresql-libs --noconfirm
 RUN pip install psycopg2
 
 #Install Golang
