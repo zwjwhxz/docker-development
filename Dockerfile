@@ -36,11 +36,17 @@ RUN pacman -S git mercurial --noconfirm
 
 #Install vim
 WORKDIR /root
+RUN pacman -S vim --noconfirm
 
 #Pull vimrc
 RUN wget https://raw.githubusercontent.com/iamthebot/docker-development/master/.vimrc
 #vim pathogen
-RUN mkdir -p /root/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.v
+RUN mkdir -p /root/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+#vim cobalt color scheme
+RUN mkdir -p /root/.vim/colors && curl -LSso /root/.vim/colors/cobalt.vim https://raw.githubusercontent.com/sfsekaran/cobalt.vim/master/colors/cobalt.vim 
+#vim cobaltish color scheme
+RUN mkdir -p /root/.vim/colors && curl -LSso /root/.vim/colors/cobaltish.vim https://raw.githubusercontent.com/flazz/vim-colorschemes/master/colors/cobaltish.vim
+
 #install nerdtree vim file explorer
 RUN mkdir -p /root/.vim/bundle
 RUN git clone https://github.com/scrooloose/nerdtree.git /root/.vim/bundle/nerdtree
