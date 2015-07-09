@@ -11,6 +11,9 @@ RUN pacman-db-upgrade
 #Create shared home dir
 RUN mkdir -p /root/share
 
+#Install basic net tools
+RUN pacman -S wget --noconfirm
+
 #Install C/C++/Fortran Development Tools
 RUN pacman -S gcc gcc-fortran astyle cmake automake make clang boost --noconfirm
 
