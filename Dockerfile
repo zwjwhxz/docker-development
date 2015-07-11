@@ -27,11 +27,10 @@ RUN pip install psycopg2
 
 #Install Golang
 RUN pacman -S go --noconfirm
-RUN mkdir -p /root/go/src mkdir -p /root/go/bin
-ENV PATH $PATH:/root/go/bin
-ENV GOPATH /root/go
-RUN mkdir -p /root/share
-VOLUME /root/share
+RUN mkdir -p /root/workdir/go/src mkdir -p /root/go/bin
+ENV PATH $PATH:/root/workdir/go/bin
+ENV GOPATH /root/workdir/go
+VOLUME /root/workdir
 
 #Install version control
 RUN pacman -S git mercurial --noconfirm
