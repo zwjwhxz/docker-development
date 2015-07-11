@@ -30,6 +30,8 @@ RUN pacman -S go --noconfirm
 RUN mkdir -p /root/go/src mkdir -p /root/go/bin
 ENV PATH $PATH:/root/go/bin
 ENV GOPATH /root/go
+RUN mkdir -p /root/share
+VOLUME /root/share
 
 #Install version control
 RUN pacman -S git mercurial --noconfirm
@@ -70,5 +72,6 @@ RUN git clone https://github.com/airblade/vim-gitgutter.git /root/.vim/bundle/vi
 RUN git clone https://github.com/fatih/vim-go.git /root/.vim/bundle/vim-go
 
 #install ssh
-RUN pacman -S openssh
+RUN pacman -S openssh --noconfirm
 RUN echo 'export PS1="\[\033[38;5;11m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h:\[$(tput sgr0)\]\[\033[38;5;6m\][\w]:\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"' > /root/.bashrc
+RUN echo "alias ls='ls --color'" > /root/.bashrc
