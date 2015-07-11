@@ -8,9 +8,6 @@ RUN pacman-key --refresh-keys
 RUN pacman -Syyu --noconfirm
 RUN pacman-db-upgrade
 
-#Create shared home dir
-RUN mkdir -p /root/share
-
 #Install basic net tools
 RUN pacman -S wget --noconfirm
 
@@ -27,7 +24,6 @@ RUN pip install psycopg2
 
 #Install Golang
 RUN pacman -S go --noconfirm
-RUN mkdir -p /root/workdir/go/src mkdir -p /root/go/bin
 ENV PATH $PATH:/root/workdir/go/bin
 ENV GOPATH /root/workdir/go
 VOLUME /root/workdir
