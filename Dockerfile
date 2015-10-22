@@ -2,6 +2,7 @@ FROM base/archlinux:latest
 ENV VNUM 1.00002
 
 #Make sure keys are fresh
+RUN pacman -Sc
 RUN pacman-key --populate archlinux
 RUN pacman-key --refresh-keys
 
