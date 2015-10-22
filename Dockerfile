@@ -1,5 +1,5 @@
 FROM base/archlinux:latest
-ENV VNUM 1.00001
+ENV VNUM 1.00002
 
 #Make sure keys are fresh
 RUN pacman-key --populate archlinux
@@ -13,7 +13,7 @@ RUN pacman-db-upgrade
 RUN pacman -S wget --noconfirm
 
 #Install C/C++/Fortran Development Tools
-RUN pacman -S gcc gcc-fortran astyle cmake automake make clang boost pkg-config --noconfirm
+RUN pacman -S gcc gcc-fortran astyle cmake automake make clang boost pkg-config gtest --noconfirm htop
 
 #Install basic python development tools
 RUN pacman -S python-pip python2-pip  --noconfirm
@@ -48,8 +48,6 @@ RUN mkdir -p /root/.vim/colors && curl -LSso /root/.vim/colors/cobaltish.vim htt
 #install nerdtree vim file explorer
 RUN mkdir -p /root/.vim/bundle
 RUN git clone https://github.com/scrooloose/nerdtree.git /root/.vim/bundle/nerdtree
-#install vim syntastic
-RUN git clone https://github.com/scrooloose/syntastic.git /root/.vim/bundle/syntastic
 #install vim airline
 RUN git clone https://github.com/bling/vim-airline.git /root/.vim/bundle/vim-airline
 #install vim YouCompleteMe
@@ -66,6 +64,8 @@ RUN git clone https://github.com/tpope/vim-fugitive.git /root/.vim/bundle/vim-fu
 RUN git clone https://github.com/airblade/vim-gitgutter.git /root/.vim/bundle/vim-gitgutter
 #install vim-go
 RUN git clone https://github.com/fatih/vim-go.git /root/.vim/bundle/vim-go
+#install tagbar
+RUN git clone https://github.com/majutsushi/tagbar.git /root/.vim/bundle/tagbar
 
 #install ssh
 RUN pacman -S openssh --noconfirm

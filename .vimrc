@@ -18,9 +18,6 @@ let g:mapleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
-" Syntastic
-let g:syntastic_python_checkers = ['flake8']
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Code Folding
