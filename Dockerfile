@@ -1,5 +1,5 @@
 FROM base/archlinux:latest
-ENV VNUM 1.00002
+ENV VNUM 1.00003
 
 #Make sure keys are fresh
 RUN pacman -Sc
@@ -14,7 +14,7 @@ RUN pacman-db-upgrade
 RUN pacman -S wget --noconfirm
 
 #Install C/C++/Fortran Development Tools
-RUN pacman -S gcc gcc-fortran astyle cmake automake make clang boost pkg-config gtest --noconfirm htop
+RUN pacman -S gcc gcc-fortran astyle cmake automake make clang boost pkg-config gtest htop lldb perf cloc --noconfirm
 
 #Install basic python development tools
 RUN pacman -S python-pip python2-pip  --noconfirm
